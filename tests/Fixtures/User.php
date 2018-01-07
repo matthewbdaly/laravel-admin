@@ -14,7 +14,7 @@ use Matthewbdaly\LaravelAdmin\Contracts\Adminable;
  */
 class User extends Authenticatable implements Adminable
 {
-    use Notifiable, Commentable;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -33,4 +33,9 @@ class User extends Authenticatable implements Adminable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function isAdmin()
+    {
+        return true;
+    }
 }
