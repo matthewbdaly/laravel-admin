@@ -5,4 +5,4 @@ Route::post('admin/login', 'Matthewbdaly\LaravelAdmin\Http\Controllers\Auth\Logi
 Route::post('admin/logout', 'Matthewbdaly\LaravelAdmin\Http\Controllers\Auth\LoginController@logout')->name('admin.logout');
 
 // Admin home page
-Route::get('/admin', 'AdminController@index')->name('admin/home')->middleware('admin');
+Route::get('/admin', 'Matthewbdaly\LaravelAdmin\Http\Controllers\AdminController@index')->name('admin.home')->middleware('admin');
