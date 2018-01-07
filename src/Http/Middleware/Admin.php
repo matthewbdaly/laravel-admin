@@ -22,7 +22,9 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (!$user = $this->auth->user()) {
+        $user = $this->auth->user();
+        if (!$user || !$user->isAdmin()) {
+            return redirect()->route('admin.login');
         }
         return $next($request);
     }
