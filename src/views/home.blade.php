@@ -17,9 +17,9 @@
                     You are logged in!
 
                     <ul>
-                        @foreach ($models as $model)
+                        @foreach ($models as $name => $model)
                         <li>
-                            <a href="/admin/{{ $model }}/">{{ $model }}</a>
+                            <a href="/admin/{{ $name }}/">{{ title_case($name) }}</a>
                         </li>
                         @endforeach
                     </ul>
