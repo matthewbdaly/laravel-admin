@@ -74,4 +74,33 @@ class AdminTest extends TestCase
         });
         $this->assertEquals(302, $resp->getStatusCode());
     }
+
+    /**
+     * Test users who are not logged in cannot navigate to the admin
+     *
+     * @return void
+     */
+    public function testUnauthorisedUsersCannotNavigateToAdmin()
+    {
+        // Mock the auth
+        $auth = m::mock('Illuminate\Contracts\Auth\Guard');
+        $auth->shouldReceive('user')->once()->andReturn(null);
+        
+        // Create request
+        $request = Request::create('http://example.com/admin/', 'GET');
+
+        // Create mock response
+        $response = m::mock('Illuminate\Http\Response');
+        $response->shouldReceive('getStatusCode')->andReturn(200);
+
+        // Instantiate middleware
+        $middleware = new Admin($auth);
+
+        // Call middleware
+        $resp = $middleware->handle($request, function () use ($response) {
+            return $response;
+        });
+        $this->assertEquals(302, $resp->getStatusCode());
+    }
+
 }
