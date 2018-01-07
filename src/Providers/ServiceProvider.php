@@ -23,7 +23,7 @@ class ServiceProvider extends BaseServiceProvider
             __DIR__.'/../views' => resource_path('views/vendor/admin'),
         ]);
         $this->publishes([
-            __DIR__.'/config.php' => config_path('admin.php'),
+            __DIR__.'/../config.php' => config_path('admin.php'),
         ]);
     }
 
