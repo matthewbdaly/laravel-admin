@@ -15,6 +15,14 @@
                     @endif
 
                     You are logged in!
+
+                    <ul>
+                        @foreach ($models as $model)
+                        <li>
+                            <a href="/admin/{{ $model }}/">{{ $model }}</a>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
