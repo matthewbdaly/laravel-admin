@@ -20,7 +20,7 @@ class ServiceProvider extends BaseServiceProvider
         $this->loadViewsFrom(__DIR__.'/../views', 'admin');
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->publishes([
-            __DIR__.'/../views', resource_path('views/admin')
+            __DIR__.'/../views', resource_path('views/vendor/admin')
         ]);
     }
 
