@@ -3,7 +3,9 @@
     "description": "Generic admin interface for Laravel",
     "type": "library",
     "keywords": ["laravel","admin"],
-    "require": {},
+    "require": {
+        "doctrine/dbal": "^2.5"
+    },
     "require-dev": {
         "orchestra/testbench": "3.5",
         "phpunit/phpunit": "^6.3",
