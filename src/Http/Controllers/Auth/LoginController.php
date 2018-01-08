@@ -28,16 +28,6 @@ class LoginController extends Controller
     protected $redirectTo = '/admin';
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('admin.logout');
-    }
-
-    /**
      * Show the application's login form.
      *
      * @return \Illuminate\Http\Response

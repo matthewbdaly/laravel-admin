@@ -4,8 +4,8 @@
 Route::group(['middleware' => ['web']], function () {
 
     // Authentication Routes...
-    Route::get('admin/login', 'Matthewbdaly\LaravelAdmin\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin.login');
-    Route::post('admin/login', 'Matthewbdaly\LaravelAdmin\Http\Controllers\Auth\LoginController@login');
+    Route::get('admin/login', 'Matthewbdaly\LaravelAdmin\Http\Controllers\Auth\LoginController@showLoginForm')->middleware('guest')->name('admin.login');
+    Route::post('admin/login', 'Matthewbdaly\LaravelAdmin\Http\Controllers\Auth\LoginController@login')->middleware('guest');
     Route::post('admin/logout', 'Matthewbdaly\LaravelAdmin\Http\Controllers\Auth\LoginController@logout')->name('admin.logout');
 
     // Admin home page
