@@ -10,13 +10,18 @@
             </div>
             @endif
 
-            <ul class="list-group">
-                @foreach ($models as $name => $model)
-                <li class="list-group-item">
-                    <a href="/admin/{{ $name }}/">{{ title_case($name) }}</a>
-                </li>
-                @endforeach
-            </ul>
+            <div class="panel-default">
+                <div class="panel-heading">Models</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        @foreach ($models as $name => $model)
+                        <li class="list-group-item">
+                            <a href="/admin/{{ $name }}/">{{ title_case($name) }}</a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
         </div>
         @include('admin::partials.sidebar')
     </div>

@@ -34,6 +34,6 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        //
+        require_once app_path() . '/Helpers.php';
     }
 }
