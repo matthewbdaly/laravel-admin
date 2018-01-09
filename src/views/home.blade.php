@@ -11,7 +11,9 @@
             @endif
 
             <div class="panel-default">
-                <div class="panel-heading">Models</div>
+                <div class="panel-heading">
+                    <h3 class="panel-title">Models</div>
+                </div>
                 <div class="panel-body">
                     <ul class="list-group">
                         @foreach ($models as $name => $model)
