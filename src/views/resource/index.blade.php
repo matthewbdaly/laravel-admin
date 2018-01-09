@@ -12,9 +12,10 @@
 
             <h2>{{ title_case($model_name) }}</h2>
             <a href="/admin/{{ $model_name }}/create" class="btn btn-primary btn-block">Create</a>
-            <ul class="list-group">
+            <table class="table tabe-striped">
                 @foreach ($items as $item)
-                <li class="list-group-item">
+                <tr class="list-group-item">
+                    <td>
                     @if ($item->name)
                     <a href="/admin/{{ $model_name }}/{{ $item->id }}/">{{ $item->name }}</a>
                     @elseif ($item->title)
@@ -22,9 +23,10 @@
                     @else
                     <a href="/admin/{{ $model_name }}/{{ $item->id }}/">{{ $item->id }}</a>
                     @endif
-                </li>
+                    </td>
+                </tr>
                 @endforeach
-            </ul>
+            </table>
         </div>
         @include('admin::partials.sidebar')
     </div>
