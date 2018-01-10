@@ -16,7 +16,8 @@ class AdminModelExists
     public function handle($request, Closure $next)
     {
         $model = $request->route('resource');
-        if (!array_key_exists($model, config('admin.models'))) {
+        $models = config('admin.models');
+        if (!$models || !array_key_exists($model, $models)) {
             abort(404);
         }
         return $next($request);
