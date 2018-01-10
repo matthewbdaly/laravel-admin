@@ -119,8 +119,7 @@ class AdminResourceController extends Controller
 
     private function getModelAttributes()
     {
-        $table = $this->model->getTable();
-        $fields = array_values(Schema::getColumnListing($table));
+        $fields = $this->model->getFillable();
         $fielddata = [];
         foreach ($fields as $field){
             if ($field != 'id' && $field != 'created_at' && $field != 'updated_at' && $field != 'deleted_at') {
