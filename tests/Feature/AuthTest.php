@@ -11,12 +11,13 @@ class AuthTest extends BrowserKitTestCase
     use RefreshDatabase;
 
     /**
-     * A basic test example.
+     * Test redirected if not logged in
      *
      * @return void
      */
-    public function testExample()
+    public function testRedirectedIfNotLoggedIn()
     {
-        $this->assertTrue(true);
+        $this->visit('/admin/')
+            ->seePageIs('/admin/login');
     }
 }
