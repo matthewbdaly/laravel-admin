@@ -22,6 +22,7 @@ trait CreatesApplication
     {
         $app = parent::createApplication();
         $app['config']->set('app.key', 'base64:LAgRRIqqEFcnz1FU5Or1IX3YVIRNnQk4lXsaxI26Hb4=');
+        $app['config']->set('auth.providers.users.model', 'Tests\Fixtures\User');
 
         Hash::setRounds(4);
 
@@ -31,5 +32,13 @@ trait CreatesApplication
     protected function resolveApplicationHttpKernel($app)
     {
         $app->singleton('Illuminate\Contracts\Http\Kernel', 'Tests\DummyKernel');
+    }
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->artisan('migrate', ['--database' => 'sqlite']);
+        $this->loadLaravelMigrations(['--database' => 'sqlite']);
+        $this->withFactories(__DIR__.'/factories');
     }
 }
