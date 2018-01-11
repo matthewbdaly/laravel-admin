@@ -23,6 +23,7 @@ trait CreatesApplication
         $app = parent::createApplication();
         $app['config']->set('app.key', 'base64:LAgRRIqqEFcnz1FU5Or1IX3YVIRNnQk4lXsaxI26Hb4=');
         $app['config']->set('auth.providers.users.model', 'Tests\Fixtures\User');
+        $app['config']->set('admin.models', []);
 
         Hash::setRounds(4);
 

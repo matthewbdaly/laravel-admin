@@ -39,4 +39,24 @@ class AuthTest extends BrowserKitTestCase
             ->press('Login')
             ->seePageIs('/admin');
     }
+
+    /**
+     * Test logout
+     *
+     * @return void
+     */
+    public function testLogout()
+    {
+        $user = factory(\Tests\Fixtures\User::class)->create([
+            'name' => 'Bob Smith',
+            'email' => 'bob@example.com',
+            'password' => bcrypt('password')
+        ]);
+        $this->be($user);
+        $this->visit('/admin/login')
+            ->seePageIs('/admin');
+        $this->call('POST', '/admin/logout');
+        $this->visit('/admin/')
+            ->seePageIs('/admin/login');
+    }
 }
