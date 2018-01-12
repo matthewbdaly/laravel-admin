@@ -25,6 +25,9 @@ class ServiceProvider extends BaseServiceProvider
         $this->publishes([
             __DIR__.'/../config.php' => config_path('admin.php'),
         ]);
+        $this->publishes([
+            __DIR__.'/../assets' => public_path('vendor/admin'),
+        ], 'public');
     }
 
     /**
