@@ -14,7 +14,7 @@ Route::group(['middleware' => ['web']], function () {
 
         // Resource routes
         Route::group(['middleware' => ['admin_model_exists']], function () {
-            Route::get('/admin/{resource}', 'Matthewbdaly\LaravelAdmin\Http\Controllers\AdminResourceController@index')->name('admin.resource')->where(['resource' => '^(!login)']);
+            Route::get('/admin/{resource}', 'Matthewbdaly\LaravelAdmin\Http\Controllers\AdminResourceController@index')->name('admin.resource');
             Route::get('/admin/{resource}/create', 'Matthewbdaly\LaravelAdmin\Http\Controllers\AdminResourceController@create')->name('admin.resource.create');
             Route::post('/admin/{resource}', 'Matthewbdaly\LaravelAdmin\Http\Controllers\AdminResourceController@store');
             Route::get('/admin/{resource}/{id}', 'Matthewbdaly\LaravelAdmin\Http\Controllers\AdminResourceController@show')->name('admin.resource.show');
